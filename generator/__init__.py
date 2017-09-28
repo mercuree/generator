@@ -24,7 +24,7 @@ class GeneratorTest(object):
                     return func(test_case, *arg)
                 copy_attributes(self, wrapper_func)
                 copy_attributes(self.func, wrapper_func)
-                wrapper_func.__name__ = "{method}[{arg!r}]".format(method=func.__name__, arg=arg)
+                wrapper_func.__name__ = "{method}[{arg!r}]".format(method=func.__name__, arg=arg[0].replace('.','_'))
                 wrapper_func.__test__ = True
                 return wrapper_func
 
